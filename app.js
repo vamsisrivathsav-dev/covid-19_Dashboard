@@ -21,20 +21,31 @@ app.use(express.static("public"));
 let contactData;
 let notificationData;
 let bedsData;
+let stateList;
+const ageList = ["0-9", "10-19", "20-29", "30-39", "40-49", "50-59", "60-69", "70 and above"];
 app.get("/",function(req, res){
-
-  // https.get(url, function(response){
-  //   response.on("data", function(data){
-  //     const receivedData = JSON.parse(data);
-  //     // console.log(data);
-  //   //   const receivedData = JSON.parse(JSON.stringify(data));
-  //   // console.log(receivedData);
-  //   })
-  // });
+  const url = "https://api.rootnet.in/covid19-in/contacts";
+  axios.get(url)
+  .then(response => {
+    const jsonData = response.data;
+    stateList = jsonData.data.contacts.regional;
+    })
+  .catch(error => {
+    console.log(error);
+  });
 
   res.render("home",{
-
+      stateList: stateList,
+      ageList: ageList
   });
+
+
+});
+
+app.post("/",function(req, res){
+  console.log(req.body.stateName);
+  console.log(req.body.age);
+  console.log(req.body.gender);
 
 
 });

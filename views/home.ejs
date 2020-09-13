@@ -2,5 +2,42 @@
 
 <h1>Home</h1>
 <div class="">
+</div>
+
+<div class="search-bar">
+
+
+
+<form action="/" method="post">
+  <label for="search" class="search-item">States:</label>
+  <select name="stateName"  id="state-dropdown">
+    <% stateList.forEach(function(item){ %>
+      <option value=" <%= item.loc%>"><%= item.loc%></option>
+          <% }); %>
+  </select>
+
+  <label for="search" class="search-item">Age:</label>
+  <select name="age"  id="age-dropdown">
+    <% ageList.forEach(function(item){ %>
+      <option value=" <%= item%>"><%= item%></option>
+          <% }); %>
+  </select>
+
+  <label for="search" class="search-item" >Gender:</label>
+  <select name="gender" id="gender-dropdown">
+    <% let genList = ["Female", "Male", "NA"]; %>
+    <% genList.forEach(function(item){ %>
+      <option value=" <%= item%>"><%= item%></option>
+          <% }); %>
+  </select>
+
+  <br><br>
+  <input type="submit" value="Submit" class="btn btn-outline-secondary btn-sm">
+</form>
 
 </div>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+<script src="/demo_script.js">
+</script>
