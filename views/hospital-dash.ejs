@@ -4,3 +4,41 @@
 <div class="">
 
 </div>
+
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">State Name</th>
+      <th scope="col">Rural Hospitals</th>
+      <th scope="col">Rural Beds</th>
+      <th scope="col">Urban Hospitals</th>
+      <th scope="col">Urban Beds</th>
+      <th scope="col">Total Hospitals</th>
+      <th scope="col">Total Beds(State Wise)</th>
+    </tr>
+  </thead>
+
+  <%    bedsList.forEach(function(item){ %>
+  <tr>
+    <td>
+      <%= item.state %>
+    </td>
+    <td>
+      <%= item.ruralHospitals %>
+    </td>
+    <td>
+      <%= item.ruralBeds %>
+    </td>
+    <td>
+      <%= item.urbanHospitals %>
+    </td><td>
+      <%= item.urbanBeds %>
+    </td><td>
+      <%= item.totalHospitals %>
+    </td><td>
+      <%= item.totalBeds %>
+    </td>
+  </tr>
+  <% }); %>
+
+</table>

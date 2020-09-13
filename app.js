@@ -18,7 +18,9 @@ app.use(express.static("public"));
 
 
 
-let homeData;
+let contactData;
+let notificationData;
+let bedsData;
 app.get("/",function(req, res){
 
   // https.get(url, function(response){
@@ -38,14 +40,43 @@ app.get("/",function(req, res){
 });
 
 app.get("/notifications",function(req, res){
-  res.render("notifications",{
+  const url = "https://api.rootnet.in/covid19-in/notifications";
+  axios.get(url)
+  .then(response => {
+    const jsonData = response.data;
+    notificationData = jsonData.data.notifications;
 
+    // console.log();
+    // console.log(response.data.explanation);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
+
+  res.render("notifications",{
+    notificationList: notificationData
   });
 
 });
 app.get("/hospital-dash",function(req, res){
-  res.render("hospital-dash",{
 
+  const url = "https://api.rootnet.in/covid19-in/hospitals/beds";
+  axios.get(url)
+  .then(response => {
+    const jsonData = response.data;
+    bedsData = jsonData.data.regional;
+
+    // console.log();
+    // console.log(response.data.explanation);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
+
+  res.render("hospital-dash",{
+    bedsList: bedsData
   });
 
 });
@@ -54,7 +85,7 @@ app.get("/contact-helpline",function(req, res){
   axios.get(url)
   .then(response => {
     const jsonData = response.data;
-    homeData = jsonData.data.contacts.regional;
+    contactData = jsonData.data.contacts.regional;
 
     // console.log();
     // console.log(response.data.explanation);
@@ -64,7 +95,7 @@ app.get("/contact-helpline",function(req, res){
   });
 
   res.render("contact-helpline",{
-    regionalList: homeData
+    regionalList: contactData
   });
 
 });

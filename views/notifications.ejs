@@ -4,3 +4,24 @@
 <div class="">
 
 </div>
+
+<table class="table table-striped">
+<thead class="thead-dark">
+  <tr>
+    <th scope="col">Notification Title</th>
+    <th scope="col">Link</th>
+  </tr>
+  </thead>
+
+  <%    notificationList.forEach(function(item){ %>
+      <tr>
+        <td>
+      <%= item.title %>
+        </td>
+        <td>
+        <%= item.link %>
+        </td>
+        </tr>
+    <% }); %>
+
+</table>

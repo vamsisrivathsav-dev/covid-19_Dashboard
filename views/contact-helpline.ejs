@@ -6,20 +6,23 @@
 </div>
 
 
-<table>
+<table class="table table-striped">
+<thead class="thead-dark">
   <tr>
-    <th>Location</th>
-    <th>Phone Number</th>
+    <th scope="col">Location</th>
+    <th scope="col">Phone Number</th>
   </tr>
-<%    regionalList.forEach(function(item){ %>
-    <tr>
-      <td>
-    <%= item.loc %>
-      </td>
-      <td>
-      <%= item.number %>
-      </td>
-      </tr>
-  <% }); %>
+  </thead>
+
+  <%    regionalList.forEach(function(item){ %>
+      <tr>
+        <td>
+      <%= item.loc %>
+        </td>
+        <td>
+        <%= item.number %>
+        </td>
+        </tr>
+    <% }); %>
 
 </table>
