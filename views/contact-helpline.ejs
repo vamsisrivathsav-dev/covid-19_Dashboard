@@ -1,0 +1,25 @@
+<%- include("partials/header") -%>
+
+<h1>Contact and Helpline</h1>
+<div class="">
+
+</div>
+
+
+<table>
+  <tr>
+    <th>Location</th>
+    <th>Phone Number</th>
+  </tr>
+<%    regionalList.forEach(function(item){ %>
+    <tr>
+      <td>
+    <%= item.loc %>
+      </td>
+      <td>
+      <%= item.number %>
+      </td>
+      </tr>
+  <% }); %>
+
+</table>
