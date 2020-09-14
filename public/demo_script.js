@@ -1,17 +1,15 @@
 window.onload = function () {
-
-//Better to construct options first and then pass it as a parameter
 var options = {
 	title: {
-		text: "Spline Chart with Export as Image"
+		text: "Deceased"
 	},
 	animationEnabled: true,
 	exportEnabled: true,
 	data: [
 	{
-		type: "spline", //change it to line, area, column, pie, etc
+		type: "spline",
 		dataPoints: [
-			{ x: 10, y: 10 },
+			{ x: 20, y: 10 },
 			{ x: 20, y: 12 },
 			{ x: 30, y: 8 },
 			{ x: 40, y: 14 },
